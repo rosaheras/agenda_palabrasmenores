@@ -15,6 +15,7 @@ class Principal extends CI_Controller {
 		 $this -> load -> model("modelo_barrios");
 		 $this -> load -> model("modelo_imagenes");
 		 $this -> load -> model("modelo_documentos");
+                 $this -> load -> model("modelo_usuarios");
 	 }
 
 	public function index()
