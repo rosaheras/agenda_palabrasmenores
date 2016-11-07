@@ -9,20 +9,24 @@ class Principal extends CI_Controller {
 	 public function __contruct() {
 		 /* Funcion de construccion del objeto */
 		 parent::__construct();
-
+                 //$this -> load -> database();
 		 // Cargamos los modelos
-		 $this -> load -> model("modelo_actividades");
+		 /*$this -> load -> model("modelo_actividades");
 		 $this -> load -> model("modelo_barrios");
 		 $this -> load -> model("modelo_imagenes");
 		 $this -> load -> model("modelo_documentos");
                  $this -> load -> model("modelo_usuarios");
-                 $this -> load -> model("modelo_secciones");
+                 $this -> load -> model("modelo_secciones");*/
+                 //this -> load -> model("modelo_imagenes");
+                 //$this -> load -> model("modelo_actividades");
 	 }
 
 	public function index()
 	{
+                $this -> load -> model("modelo_imagenes");
+                $this -> load -> model("modelo_actividades");
 		/* Cargamos en unos array los datos falsos */
-		$actividad = array(
+		/*$actividad = array(
 			"campanya" => "Seminci 2016",
 			"actividad" => "Cazar gamusinos",
 			"descripcion" => "Esta actividad es la de cazar gamusinos.<br/>Pero los gamusinos corren mucho, <strong>malditos</strong>.<br/>Ahora el mal: arrebañar, ARREBAÑAR, balcón, BALCÓN.",
@@ -61,8 +65,7 @@ class Principal extends CI_Controller {
 		// Tambien recuerda para cada prueba, comentar los controladores que no vayas a usar
 		// Como ves no te he puesto las de modificar, ya que son practicamente como un INSERT
 
-		$this -> modelo_usuarios -> add_usuario($usuarios['login'], $usuarios['password'], $usuarios['nombre'], $usuarios['idacl']);
-		$this -> modelo_usuarios -> del_usuario($usuarios['login']);
+		/*his -> modelo_usuarios -> del_usuario($usuarios['login']);
                 
                 $this -> modelo_secciones -> add_seccion($seccion['seccion']);
 		$this -> modelo_secciones -> del_seccion();
@@ -79,7 +82,10 @@ class Principal extends CI_Controller {
 		$this -> modelo_actividades -> add_actividad($actividad['campanya'], $actividad['actividad'], $actividad['descripcion'], $actividad['organiza'], $actividad['lugar'], $actividad['idbarrio'], $actividad['idseccion'], $actividad['fecha'], $actividad['usuario']);
 		$this -> modelo_actividades -> del_actividad();
 		/* Llamamos a una vista llamada principal */
-		$this->load->view('principal', $datos);
+		echo "Hasta aqui todo ok";
+                $this->modelo_actividades->dame();
+                
+                $this->load->view('principal');
 	}
 }
 

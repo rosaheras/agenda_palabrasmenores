@@ -10,7 +10,7 @@ class Modelo_imagenes extends CI_Model {
 		$this -> load -> database();
     }
 
-    function add_imagen ($idactividad, $rutaimagen, $descripcion) {
+   public function add_imagen ($idactividad, $rutaimagen, $descripcion) {
         // Funcion para añadir una imagen a la actividad
       // Aqui hay que poner las variables que se le pasan y que es cada una
       // Recuerda, en el modelo, comprobar que los datos que te meten
@@ -23,7 +23,7 @@ class Modelo_imagenes extends CI_Model {
         $resultado = $this -> db -> query($sql);
     }
 
-    function update_imagen ($idimagenes, $idactividad, $rutaimagen, $descripcion) {
+    public function update_imagen ($idimagenes, $idactividad, $rutaimagen, $descripcion) {
         // Funcion para modificar una imagen
         // $idimagenes  --> Identificador de la imagen que se va a actualizar
         // $idactividad --> ID de la actividad a la que pertenece la imagen
@@ -34,12 +34,17 @@ class Modelo_imagenes extends CI_Model {
         $resultado = $this -> db -> query($sql);
     }
 
-    function del_imagen ($idimagenes) {
+    public function del_imagen ($idimagenes) {
         // Funcion para eliminar imagen de una actividad
         // $idimagenes  --> Identificador de la imagen que se va a eliminar
 //OJO ??? COMO SE ELIMINA LA IMAGEN 
         $sql = "DELETE FROM imagenes WHERE idimagenes='" . $idimagenes . "'";
         $resultado = $this -> db -> query($sql);
+    }
+    
+    public function entro() {
+        echo "SASDASDASD";
+        return true;
     }
   }
 ?>
